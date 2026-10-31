@@ -66,7 +66,7 @@ Cada llamada que emite el modelo tiene un`id`Cada resultado que devuelva el anfi
 
 El anfitrión ejecuta el ejecutor de cada llamada en su propio hilo, coroutine o trabajador remoto.`asyncio.gather`El orden de finalización es impredecible  el id es el identificador.
 
-Un error común: responder con resultados en orden de lista de llamadas en lugar de orden de finalización. Esto suele funcionar porque el modelo solo se preocupa por `tool_call_id`, pero si un resultado se deja caer o se duplica, la presentación fuera de orden hace que el descomposición sea más difícil.
+Un error común: responder con resultados en orden de lista de llamadas en lugar de orden de finalización. Esto suele funcionar porque el modelo solo se preocupa por `tool_call_id`, pero si un resultado se deja caer o se duplica, una lista de respuestas que se reordenará lejos del orden en que los resultados llegaron hace que la brecha sea más difícil de encontrar en los registros.
 
 ### Las llamadas de herramientas de transmisión
 
@@ -158,7 +158,7 @@ Esta lección produce`outputs/skill-parallel-call-safety-check.md`. Dado un regi
 ## Leer más
 
 - [OpenAI — Parallel function calling](https://platform.openai.com/docs/guides/function-calling#parallel-function-calling) El comportamiento predeterminado y la bandera de exclusión
-- [Anthropic — Tool use: implementing tool use](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/implementing-tool-use)¿ Qué es esto ?`disable_parallel_tool_use`y lotes de resultados
+- [Anthropic — Parallel tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/parallel-tool-use)¿ Qué es esto ?`disable_parallel_tool_use`y lotes de resultados
 - [Google — Gemini function calling parallel section](https://ai.google.dev/gemini-api/docs/function-calling) Llamadas paralelas correlacionadas con id de Gemini 3
 - [OpenAI — Streaming responses with tools](https://platform.openai.com/docs/api-reference/responses-streaming) reensamblaje de argumentos en fragmentos para flujos OpenAI
 - [Anthropic — Streaming messages](https://docs.anthropic.com/en/api/messages-streaming)¿ Qué es esto ?`content_block_delta`con`input_json_delta`
