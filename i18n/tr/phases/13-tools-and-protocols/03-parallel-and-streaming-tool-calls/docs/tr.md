@@ -66,7 +66,7 @@ Model gönderdiği her çağrıda bir `id`Ev sahibi gönderdiği her sonuç ayn�
 
 Ev sahibi her çağrı icracı'nı kendi ip, coroutine veya uzaktan çalışan üzerinde çalıştırır. En basit harness bir ip havuzu kullanır; üretim asyncio ile `asyncio.gather`Tamamlama sırası öngörülemez  kimlik tanımlayıcıdır.
 
-Genel bir hata: cevaplama sonuçları, tamamlama sırası yerine çağrı listesi sırası ile. Bu genellikle çalışır çünkü model sadece `tool_call_id`, ama sonuç düşürülürse veya çoğaltılırsa, sipariş dışı gönderme debugging zorlaştırır.
+Genel bir hata: cevaplama sonuçları, tamamlama sırası yerine çağrı listesi sırası ile. Bu genellikle çalışır çünkü model sadece `tool_call_id`, ama bir sonuç düşürülürse veya çoğaltılırsa, sonuçlar gelen sıradan uzaklaştırılmış bir cevap listesi, boşluğu günlüklerde bulmakta zorlaşır. Açık tanımlarla tamamlama sırasıyla cevap vermek tercih edilir.
 
 ### Akış araç çağrıları
 
@@ -158,7 +158,7 @@ Bu ders bize çok yararlı .`outputs/skill-parallel-call-safety-check.md`. Bir a
 ## Daha Fazla Okumak
 
 - [OpenAI — Parallel function calling](https://platform.openai.com/docs/guides/function-calling#parallel-function-calling) Varsayılan davranış ve seçme bayrağı
-- [Anthropic — Tool use: implementing tool use](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/implementing-tool-use) `disable_parallel_tool_use`ve sonuç serileme
+- [Anthropic — Parallel tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/parallel-tool-use) `disable_parallel_tool_use`ve sonuç serileme
 - [Google — Gemini function calling parallel section](https://ai.google.dev/gemini-api/docs/function-calling) Gemini 3'den id ile ilgili paralel aramalar
 - [OpenAI — Streaming responses with tools](https://platform.openai.com/docs/api-reference/responses-streaming) OpenAI akışları için parçalara ayrılmış argüman yeniden birleştirilmesi
 - [Anthropic — Streaming messages](https://docs.anthropic.com/en/api/messages-streaming) `content_block_delta`- Evet .`input_json_delta`
